@@ -1,0 +1,59 @@
+# Binarios y compilados de Go
+*.exe
+*.exe-e
+*.bat
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Directorio de salida común para builds
+/bin/
+/dist/
+/build/
+
+# Archivos de depuración y profiling
+*.prof
+*.pprof
+*.cpu
+*.mem
+*.block
+*.trace
+/debug
+/__debugbin
+
+# Archivos de cobertura de código
+*.cover
+*.coverage
+coverage.txt
+coverage.out
+coverage.html
+
+# Variables de entorno y secretos
+.env
+.env.local
+.env.*.local
+
+# Archivos del IDE / Editor
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Dependencias vendoreadas (opcional: descomentar si NO usas 'go mod vendor' en Git)
+# /vendor/
+
+# Archivos del Sistema Operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
