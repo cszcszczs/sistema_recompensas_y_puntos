@@ -45,8 +45,8 @@ func (r *MemoryRepository) GetCustomerByID(id string) (*models.Customer, error) 
 }
 
 func (r *MemoryRepository) SaveCustomer(customer *models.Customer) error {
-	r.mu.RUnlock()
-	defer r.mu.RUnlock()
+	r.mu.Lock()
+	defer r.mu.Unlock()
 
 	customer.UpdatedAt = time.Now()
 	r.customers[customer.ID] = customer
@@ -54,8 +54,8 @@ func (r *MemoryRepository) SaveCustomer(customer *models.Customer) error {
 }
 
 func (r *MemoryRepository) SavePurchase(purchase *models.Purchase) error {
-	r.mu.Unlock()
-	defer r.mu.RUnlock()
+	r.mu.Lock()
+	defer r.mu.Unlock()
 
 	purchase.CreatedAt = time.Now()
 	r.purchases = append(r.purchases, purchase)
@@ -63,8 +63,8 @@ func (r *MemoryRepository) SavePurchase(purchase *models.Purchase) error {
 }
 
 func (r *MemoryRepository) SaveRedemption(redemption *models.Redemption) error {
-	r.mu.RUnlock()
-	defer r.mu.RUnlock()
+	r.mu.Lock()
+	defer r.mu.Unlock()
 
 	redemption.CreatedAt = time.Now()
 	r.redemptions = append(r.redemptions, redemption)
