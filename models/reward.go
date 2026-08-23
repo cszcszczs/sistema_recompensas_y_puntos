@@ -39,3 +39,39 @@ type Reedemption struct {
 	EquivalentCash float64   `json:"equivalent_cash"`
 	CreatedAt      time.Time `json:"created_at"`
 }
+
+// --- DTOs (Data Transfer Objects) para peticiones y respuestas HTTP ---
+
+type PurchaseRequest struct {
+	CustomerID string  `json:"customer_id"`
+	Amount     float64 `json:"amount"`
+}
+
+type PurchaseResponse struct {
+	PurchaseID   string  `json:"purchase_id"`
+	CustomerID   string  `json:"customer_id"`
+	Amount       float64 `json:"amount"`
+	EarnedPoints int     `json:"earned_points"`
+	TotalPoints  int     `json:"total_points"`
+}
+
+type PointsBalanceResponse struct {
+	CustomerID string `json:"customer_id"`
+	Points     int    `json:"points"`
+}
+
+type RedeemRequest struct {
+	Points int `json:"points"`
+}
+
+type RedeemResponse struct {
+	RedeemptionID   string  `json:"redeemption_id"`
+	CustomerID      string  `json:"customer_id"`
+	RedeemedPoints  int     `json:"redeemed_points"`
+	EquivalentCash  float64 `json:"equivalent_cash"`
+	RemainingPoints int     `json:"remaining_points"`
+}
+
+type ErrorResponse struct {
+	Message string `json:"message"`
+}
