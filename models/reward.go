@@ -65,7 +65,7 @@ type RedeemRequest struct {
 }
 
 type RedeemResponse struct {
-	RedeemptionID   string  `json:"redeemption_id"`
+	RedemptionID    string  `json:"redeemption_id"`
 	CustomerID      string  `json:"customer_id"`
 	RedeemedPoints  int     `json:"redeemed_points"`
 	EquivalentCash  float64 `json:"equivalent_cash"`
