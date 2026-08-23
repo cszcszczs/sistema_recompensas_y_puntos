@@ -32,7 +32,7 @@ type Purchase struct {
 	CreatedAt    time.Time `json:"created_at"`
 }
 
-type Reedemption struct {
+type Redemption struct {
 	ID             string    `json:"id"`
 	CustomerID     string    `json:"customer_id"`
 	RedeemedPoints int       `json:"redeemed_points"`
